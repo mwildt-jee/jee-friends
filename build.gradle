@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+
+
+eclipse {
+    wtp {
+        facet {
+            facet name: "java", version: "1.8"          
+            facet name: "jst.web", version: "3.0"           
+        }
+    }
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	providedCompile 'javax.enterprise:cdi-api:1.2'	
+	providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+}
