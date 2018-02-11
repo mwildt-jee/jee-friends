@@ -18,8 +18,7 @@ public class RegisterAction extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		// TODO: Implement
+		// TODO: Implement Method
 		super.doPost(req, resp);
 	}
 

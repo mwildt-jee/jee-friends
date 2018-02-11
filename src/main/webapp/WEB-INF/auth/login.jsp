@@ -5,16 +5,15 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
 		<title>Login</title>
+		
 	</head>
 	<body>
+	
+		<jsp:include page="../navigation.jsp" />
 		
 		<div class="container container-fluid">
 		
 			<h1>Login</h1>
-			
-			<p>
-				Noch keinen Account? <a href="<%=request.getContextPath()%>/auth/register">Registrieren</a>
-			</p>
 			
 			<div>
 				
@@ -35,6 +34,8 @@
 				</form>
 				
 			</div>
+			
+			<p>Noch kein Account? <a href="<%=request.getContextPath()%>/auth/register">Registrieren</a></p>
 			
 		</div>
 		
