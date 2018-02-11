@@ -7,6 +7,8 @@
 		<title>Login</title>
 	</head>
 	<body>
+
+		<jsp:include page="../navigation.jsp" />
 		
 		<div class="container container-fluid">
 		

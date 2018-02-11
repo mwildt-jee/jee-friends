@@ -8,6 +8,8 @@
 	</head>
 	<body>
 		
+		<jsp:include page="navigation.jsp" />
+		
 		<div class="container container-fluid">
 		
 			<h1>Welcome to Friends</h1>
