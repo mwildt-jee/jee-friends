@@ -1,3 +1,5 @@
+<%@ page import="de.hsw.jee.friends.model.Profile" %>
+<%@ page import="java.util.List" %>
 <html>
 	<head>
 	
@@ -10,8 +12,17 @@
 		
 		<div class="container container-fluid">
 		
-			<h1>Welcome Friend</h1>
+			<h1>Welcome to Friend</h1>
 						
+			<div class="row">
+			
+				<% for(Profile p : (List<Profile>)request.getAttribute("profiles")) {%>
+					<div class="col-lg-3 panel panel default">
+						<h3><%=p.getFirstname() %> <%=p.getLastname()%></h3>
+					</div>
+				<% } %>
+				
+			</div>
 		</div>
 		
 	</body>

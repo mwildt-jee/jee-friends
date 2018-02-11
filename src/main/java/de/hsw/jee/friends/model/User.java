@@ -1,5 +1,7 @@
 package de.hsw.jee.friends.model;
 
+import java.text.MessageFormat;
+
 public class User {
 
 	private Long id;
@@ -28,6 +30,11 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("User{id: %d, username: %s}", id, username);
 	}
 
 }

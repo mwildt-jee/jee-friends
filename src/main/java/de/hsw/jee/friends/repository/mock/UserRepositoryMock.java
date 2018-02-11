@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import de.hsw.jee.friends.model.User;
 import de.hsw.jee.friends.repository.UserRepository;
 
+@ApplicationScoped
 public class UserRepositoryMock implements UserRepository{
 
 	private final List<User> users = new ArrayList<>();

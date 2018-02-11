@@ -18,12 +18,22 @@
 	
 					<div class="form-group">
 						<label for="username">Username</label> 
-						<input type="username" class="form-control" id="username" placeholder="Username">
+						<input name="username"  class="form-control" id="username" placeholder="Username">
 					</div>
 	
 					<div class="form-group">
 						<label for="password">Password</label> 
-						<input type="password" class="form-control" id="password" placeholder="Password">
+						<input type="password" name="password"  class="form-control" id="password" placeholder="Password">
+					</div>
+					
+					<div class="form-group">
+						<label for="firstname">Vorname</label> 
+						<input name="firstname"  class="form-control" id="firstname" placeholder="Vorname">
+					</div>
+					
+					<div class="form-group">
+						<label for="lastname">Nachname</label> 
+						<input name="lastname"  class="form-control" id="lastname" placeholder="Nachname">
 					</div>
 	
 					<button class="btn btn-primary" type="submit">Registrieren</button>
