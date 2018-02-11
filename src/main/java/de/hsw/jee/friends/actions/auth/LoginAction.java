@@ -13,12 +13,13 @@ public class LoginAction extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/auth/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
 	}
 	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO: Implement Method
 		super.doPost(req, resp);
 	}
 

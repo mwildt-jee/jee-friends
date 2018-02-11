@@ -10,7 +10,7 @@
 		
 		<div class="container container-fluid">
 		
-			<h1>Welcome Friend</h1>
+			<h1>Welcome to Friends</h1>
 						
 		</div>
 		

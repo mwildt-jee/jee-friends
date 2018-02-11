@@ -10,24 +10,30 @@
 		
 		<div class="container container-fluid">
 		
-			<h1>Registrieren</h1>
+			<h1>Login</h1>
+			
+			<p>
+				Noch keinen Account? <a href="<%=request.getContextPath()%>/auth/register">Registrieren</a>
+			</p>
 			
 			<div>
 				
-				<form class="form" method="POST" action="<%=request.getContextPath()%>/auth/register">
+				<form class="form" method="POST" action="<%=request.getContextPath()%>/auth/login">
 	
 					<div class="form-group">
 						<label for="username">Username</label> 
-						<input type="username" class="form-control" id="username" placeholder="Username">
+						<input name="username" class="form-control" id="username" placeholder="Username">
 					</div>
 	
 					<div class="form-group">
 						<label for="password">Password</label> 
-						<input type="password" class="form-control" id="password" placeholder="Password">
+						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 					</div>
 	
-					<button class="btn btn-primary" type="submit">Registrieren</button>
+					<button class="btn btn-primary" type="submit">Login</button>
+				
 				</form>
+				
 			</div>
 			
 		</div>

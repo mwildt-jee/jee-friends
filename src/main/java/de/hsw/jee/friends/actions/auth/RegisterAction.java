@@ -13,11 +13,13 @@ public class RegisterAction extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/auth/register.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/auth/register.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// TODO: Implement
 		super.doPost(req, resp);
 	}
 
