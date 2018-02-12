@@ -13,7 +13,6 @@ public class TraceInterceptor {
 
 	final Logger LOG = LoggerFactory.getLogger(TraceInterceptor.class);
 	
-	
     @AroundInvoke
     public Object logMethodEntry(InvocationContext invocationContext) throws Exception {
         LOG.info(">> {}::{}", 
