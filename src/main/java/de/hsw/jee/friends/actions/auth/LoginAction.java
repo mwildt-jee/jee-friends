@@ -35,6 +35,7 @@ public class LoginAction extends HttpServlet {
 		req.getRequestDispatcher(Constants.WEB_INF + "/auth/login.jsp").forward(req, resp);
 	}
 	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
