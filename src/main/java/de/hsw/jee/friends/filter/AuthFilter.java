@@ -31,7 +31,7 @@ public class AuthFilter implements Filter{
 		boolean authenticated = Objects.nonNull(httpRequest.getSession().getAttribute(Constants.USER_SESSION_ATTR)); 
 		
 		if (!httpRequest.getServletPath().startsWith("/auth") && !authenticated) {
-			String loginPath = httpRequest.getContextPath() + "/auth/login.jsp";
+			String loginPath = httpRequest.getContextPath() + "/auth/login";
 			HttpServletResponse.class.cast(resp).sendRedirect(loginPath);
 		} else {
 			chain.doFilter(req, resp);
@@ -39,7 +39,4 @@ public class AuthFilter implements Filter{
 		
 	}
 
-	
-
-	
 }
