@@ -1,3 +1,6 @@
+<%@ page import="de.hsw.jee.friends.model.*" %>
+<%@ page import="java.util.*" %>
+
 <nav class="navbar navbar-default">
 	<div class="container container-fluid">
 		<div class="navbar-header">

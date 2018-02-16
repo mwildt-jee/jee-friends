@@ -21,7 +21,7 @@
 	
 					<div class="form-group">
 						<label for="username">Benutzername</label> 
-						<input class="form-control" id="username" placeholder="Username">
+						<input class="form-control" id="username" name="username" placeholder="Username">
 					</div>
 	
 					<div class="form-group">
