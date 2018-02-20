@@ -19,7 +19,6 @@
 		
 			<h1>Welcome to Friends</h1>
 				
-				
 			<h2>&Uuml;ersicht</h2>
 			
 			<div class="row">
@@ -36,3 +35,4 @@
 	</body>
 
 </html>
+

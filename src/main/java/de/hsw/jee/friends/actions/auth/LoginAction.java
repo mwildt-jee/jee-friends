@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.hsw.jee.friends.Constants;
+import de.hsw.jee.friends.SessionContext;
 import de.hsw.jee.friends.model.User;
 import de.hsw.jee.friends.repository.UserRepository;
 import de.hsw.jee.friends.services.PasswordEncoder;
@@ -25,6 +26,7 @@ public class LoginAction extends HttpServlet {
 	
 	@Inject private UserRepository userRepository;
 	@Inject private PasswordEncoder passwordEncoder;
+	@Inject private  SessionContext sessionContext;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,7 +45,7 @@ public class LoginAction extends HttpServlet {
 		
 		if(user != null) {
 			LOG.info("User with name {} cannont be logged in", username);
-			req.getSession().setAttribute(Constants.USER_SESSION_ATTR, user);
+			sessionContext.setUser(user);
 			resp.sendRedirect(req.getContextPath());
 		} else {
 			// TODO Fehlerhandling

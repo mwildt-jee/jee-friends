@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+
 import de.hsw.jee.friends.model.User;
 import de.hsw.jee.friends.repository.UserRepository;
 import org.slf4j.Logger;
@@ -19,6 +20,13 @@ public class UserService {
 	@Inject private UserRepository userRepository;
 	@Inject private PasswordEncoder passswordEncoder;
 	
+	/**
+	 * Erzeugt einen neuen Benutzer
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public User createUser(String username, String password) {
 		Optional<User> userOpt = userRepository.findByUserName(username);
 		if(userOpt.isPresent()) {
