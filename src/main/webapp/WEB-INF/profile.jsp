@@ -18,51 +18,78 @@
 		<div class="container container-fluid">
 		
 			<h1><%= ((User)request.getAttribute("user")).getUsername() %>'s Profile</h1>
-				
-			<div class="panel panel-default">
-				<div class="panel-heading">
-				 	<h2 class="panel-title">Was hast du zu sagen</h2>
-				</div>
 			
-				<div class="panel-body">
-						
-					<form class="form" method="POST" action="<%=request.getContextPath()%>/profile/messages" >
-		
-						<div class="form-group">
-							<label for="username"></label> 
-							<textarea name="message" class="form-control"></textarea>
+			<div class="row">
+			
+				<div class="col-xs-8">
+			
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						 	<h2 class="panel-title">Was hast du zu sagen</h2>
 						</div>
-		
-						<button class="btn btn-primary" type="submit">Veröffentlichen</button>
-						
-					</form>
 					
-				</div>
-						
-			</div>
-			
-			<% for(Message message : (List<Message>) request.getAttribute("messages")) { %>
-			
-				<div class="well">
-					
-					<div class="panel-body">
-						<h4>Von <%= message.getUser().getUsername() %> <small> <%= message.getCreated() %> </small></h4>
+						<div class="panel-body">
+								
+							<form class="form" method="POST" action="<%=request.getContextPath()%>/profile/messages" >
+				
+								<div class="form-group">
+									<label for="username"></label> 
+									<textarea name="message" class="form-control"></textarea>
+								</div>
+				
+								<button class="btn btn-primary" type="submit">Veröffentlichen</button>
+								
+							</form>
 							
-						<%= message.getMessage() %>
-						
+						</div>
+								
 					</div>
+					
+					<% for(Message message : (List<Message>) request.getAttribute("messages")) { %>
+					
+						<div class="well">
+							
+							<div class="panel-body">
+								<h4>Von <%= message.getUser().getUsername() %> <small> <%= message.getCreated() %> </small></h4>
+									
+								<%= message.getMessage() %>
+								
+							</div>
+									
+						</div>
+						
+					<% } %>
 							
 				</div>
+	
+				<div class="col-xs-4">
 				
-			<% } %>
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4 class="panel-title">Du folgst (<%= ((Set<Profile>) request.getAttribute("followed")).size() %>)</h4> 
+						</div>
+						<div class="panel-body">
+							<ul>
+								<% for(Profile profil : (Set<Profile>) request.getAttribute("followed")) { %>
+									<li><%= profil.getDisplayName() %></li>	
+								<% } %>
+							</ul>
+						</div>
+					</div>
 					
-			
-			<% %>
-			
-				
-						
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4 class="panel-title">Dir folgen (<%= ((Set<Profile>) request.getAttribute("following")).size() %>)</h4></div>
+						<div class="panel-body">
+							<ul>
+								<% for(Profile profil : (Set<Profile>) request.getAttribute("following")) { %>
+									<li><%= profil.getDisplayName() %></li>	
+								<% } %>
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+			</div>
 		</div>
-		
 	</body>
 
 </html>

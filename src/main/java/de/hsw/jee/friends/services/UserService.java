@@ -20,6 +20,10 @@ public class UserService {
 	@Inject private UserRepository userRepository;
 	@Inject private PasswordEncoder passswordEncoder;
 	
+	public Optional<User> findById(long id) {
+		return userRepository.find(id);
+	}
+	
 	/**
 	 * Erzeugt einen neuen Benutzer
 	 * 
@@ -44,5 +48,7 @@ public class UserService {
 	public boolean noUserExists() {
 		return userRepository.findAll().isEmpty();
 	}
+
+	
 	
 }

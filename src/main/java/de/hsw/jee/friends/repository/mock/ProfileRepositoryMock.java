@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -15,6 +16,7 @@ import de.hsw.jee.friends.repository.ProfileRepository;
 public class ProfileRepositoryMock implements ProfileRepository {
 
 	private final List<Profile> profiles = new ArrayList<>();
+	private Long idSequence = 0L; 
 	
 	@Override
 	public Profile findByOwner(User user) {
@@ -30,12 +32,20 @@ public class ProfileRepositoryMock implements ProfileRepository {
 			throw new RuntimeException("Null Constraint Violation Exception on field 'owner'");
 		}
 		this.profiles.add(profile);
+		profile.setId(++idSequence);
 		return profile;
 	}
 
 	@Override
 	public List<Profile> findAll() {
 		return Collections.unmodifiableList(this.profiles);
+	}
+
+	@Override
+	public Optional<Profile> findById(long id) {
+		return profiles.stream()
+				.filter(p -> Objects.equals(p.getId(), id))
+				.findFirst();
 	}
 
 }

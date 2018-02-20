@@ -3,6 +3,7 @@ package de.hsw.jee.friends.actions.profile;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -15,11 +16,15 @@ import javax.servlet.http.HttpServletResponse;
 import de.hsw.jee.friends.Constants;
 import de.hsw.jee.friends.SessionContext;
 import de.hsw.jee.friends.model.Message;
+import de.hsw.jee.friends.model.Profile;
+import de.hsw.jee.friends.model.User;
 import de.hsw.jee.friends.services.MessageService;
+import de.hsw.jee.friends.services.RelationService;
 
 @WebServlet("/profile")
 public class ProfileAction extends HttpServlet {
 
+	@Inject private RelationService relationService;
 	@Inject private MessageService messageService;
 	@Inject private SessionContext sessionContext;
 	
@@ -31,6 +36,12 @@ public class ProfileAction extends HttpServlet {
 				.collect(Collectors.toList());
 		
 		req.setAttribute("messages", messages);
+		
+		final Set<Profile> followed = relationService.getFollowedProfiles(sessionContext.getUser());
+		req.setAttribute("followed", followed);
+		
+		final Set<Profile> following = relationService.getFollowingProfiles(sessionContext.getUser());
+		req.setAttribute("following", following);
 		
 		req.getRequestDispatcher(Constants.jsp("/profile")).forward(req, resp);
 	}

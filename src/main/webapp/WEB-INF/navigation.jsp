@@ -9,18 +9,18 @@
 			
 				<% if(request.getAttribute("user") != null) { %>
 					<li role="presentation"><a href="<%=request.getContextPath()%>">Startseite</a></li>
-				
 					<li role="presentation"><a href="<%=request.getContextPath()%>/profile">Mein Profil</a></li>
 					
+					
+					<li role="presentation"><a href="<%=request.getContextPath()%>/auth/logout">Logout</a></li>
 				<% } %>
 			
 				<% if(request.getAttribute("user") == null) { %>
 					<li role="presentation"><a href="<%=request.getContextPath()%>/auth/login">Login</a></li>
 				<% } %>				
 				
-				
 				<li role="presentation"><a href="<%=request.getContextPath()%>/auth/register">Registrieren</a></li>
-			
+
 			</ul>
 				
 		</div>

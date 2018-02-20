@@ -26,8 +26,11 @@ public class Bootstrap {
 			final User admin = userService.createUser("admin", "admin");
 			profileService.createProfile(admin, "Adam", "admin");
 
-			final User user1 = userService.createUser("bert", "bert");
-			profileService.createProfile(user1, "Bertholt", "Benutzer");
+			final User bert = userService.createUser("bert", "bert");
+			profileService.createProfile(bert, "Bertholt", "Benutzer");
+			
+			final User chris = userService.createUser("chris", "chris");
+			profileService.createProfile(chris, "Chris", "Carbon");
 		}
     }
 }

@@ -1,5 +1,7 @@
 package de.hsw.jee.friends.services;
 
+import java.util.Optional;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
@@ -12,6 +14,9 @@ public class ProfileService {
 
 	@Inject private ProfileRepository profileRepository;
 
+	public Optional<Profile> findById(long id) {
+		return profileRepository.findById(id);
+	}	
 	
 	/**
 	 * Erzeugt ein neues Profil
@@ -26,6 +31,9 @@ public class ProfileService {
 		profile.setFirstName(firstname);
 		profile.setLastName(lastname);
 		return profileRepository.save(profile);
-	}	
+	}
+
+
+	
 	
 }
