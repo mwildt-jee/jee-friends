@@ -14,7 +14,6 @@ import de.hsw.jee.friends.repository.ProfileRepository;
 import de.hsw.jee.friends.services.RelationService;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @WebServlet("/") 

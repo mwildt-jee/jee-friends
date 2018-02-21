@@ -48,7 +48,5 @@ public class UserService {
 	public boolean noUserExists() {
 		return userRepository.findAll().isEmpty();
 	}
-
-	
 	
 }

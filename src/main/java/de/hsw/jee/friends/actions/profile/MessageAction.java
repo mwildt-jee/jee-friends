@@ -24,7 +24,7 @@ public class MessageAction extends HttpServlet {
 		
 		Message message = new Message();
 		
-		message.setUser(sessionContext.getUser());
+		message.setProfile(sessionContext.getUser().getProfile());
 		message.setMessage(req.getParameter("message"));
 		messageSevice.save(message);
 		

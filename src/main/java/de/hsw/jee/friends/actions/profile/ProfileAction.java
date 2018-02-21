@@ -16,9 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import de.hsw.jee.friends.Constants;
 import de.hsw.jee.friends.SessionContext;
 import de.hsw.jee.friends.model.Message;
+import de.hsw.jee.friends.model.Notification;
 import de.hsw.jee.friends.model.Profile;
-import de.hsw.jee.friends.model.User;
 import de.hsw.jee.friends.services.MessageService;
+import de.hsw.jee.friends.services.NotificationService;
 import de.hsw.jee.friends.services.RelationService;
 
 @WebServlet("/profile")
@@ -27,14 +28,14 @@ public class ProfileAction extends HttpServlet {
 	@Inject private RelationService relationService;
 	@Inject private MessageService messageService;
 	@Inject private SessionContext sessionContext;
+	@Inject private NotificationService notificationService;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		final List<Message> messages = messageService.findByUser(sessionContext.getUser()).stream()
+		final List<Message> messages = messageService.findByProfile(sessionContext.getUser().getProfile()).stream()
 				.sorted(Comparator.comparing(Message::getCreated).reversed())
 				.collect(Collectors.toList());
-		
 		req.setAttribute("messages", messages);
 		
 		final Set<Profile> followed = relationService.getFollowedProfiles(sessionContext.getUser());
@@ -42,6 +43,9 @@ public class ProfileAction extends HttpServlet {
 		
 		final Set<Profile> following = relationService.getFollowingProfiles(sessionContext.getUser());
 		req.setAttribute("following", following);
+		
+		final List<Notification> notifications = notificationService.findFirstByUser(10, sessionContext.getUser());
+		req.setAttribute("notifications", notifications);
 		
 		req.getRequestDispatcher(Constants.jsp("/profile")).forward(req, resp);
 	}

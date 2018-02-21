@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.ApplicationScoped;
 
 import de.hsw.jee.friends.model.Message;
+import de.hsw.jee.friends.model.Profile;
 import de.hsw.jee.friends.model.User;
 import de.hsw.jee.friends.repository.MessageRepository;
 
@@ -27,7 +28,14 @@ public class MessageRepositoryMock implements MessageRepository {
 	@Override
 	public List<Message> findByUser(User user) {
 		return data.stream()
-			.filter(m -> m.getUser().equals(user))
+			.filter(m -> m.getProfile().getOwner().equals(user))
+			.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<Message> findByProfile(Profile profile) {
+		return data.stream()
+			.filter(m -> m.getProfile().equals(profile))
 			.collect(Collectors.toList());
 	}	
 	

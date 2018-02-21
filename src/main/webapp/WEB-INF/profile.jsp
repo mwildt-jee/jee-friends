@@ -50,7 +50,7 @@
 						<div class="well">
 							
 							<div class="panel-body">
-								<h4>Von <%= message.getUser().getUsername() %> <small> <%= message.getCreated() %> </small></h4>
+								<h4>Von <%= message.getProfile().getDisplayName() %> <small> <%= message.getCreated() %> </small></h4>
 									
 								<%= message.getMessage() %>
 								
@@ -85,6 +85,21 @@
 								<% } %>
 							</ul>
 						</div>
+					</div>
+					
+					
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4 class="panel-title">Aktuelles</h4></div>
+						<% for(Notification notification : (List<Notification>) request.getAttribute("notifications")) { %>
+							<div class="panel-body">
+								<h4>
+									<span><%= notification.getMessage().getProfile().getDisplayName() %></span> <br/>
+									<small><%= notification.getCreated() %></small>
+								</h4>
+								<small><%= notification.getMessage().getMessage() %></small>
+								
+							</div>
+						<% } %>
 					</div>
 					
 				</div>

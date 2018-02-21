@@ -10,10 +10,11 @@ public class User {
 	private String password;
 	private Profile profile;
 	
+	
 	/* Die Profile, denen der Nutzer Folgt */
 	private Set<Profile> followed = new HashSet<>();
 	
-	private Set<Message> messages = new HashSet<>();
+	private Set<Notification> notifications = new HashSet<>();
 	
 	public Long getId() {
 		return id;
@@ -50,14 +51,6 @@ public class User {
 		}
 	}
 
-	public Set<Message> getMessages() {
-		return messages;
-	}
-
-	public void setMessages(Set<Message> messages) {
-		this.messages = messages;
-	}
-
 	public Set<Profile> getFollowed() {
 		return followed;
 	}
@@ -66,6 +59,12 @@ public class User {
 		this.followed = followed;
 	}
 	
-	
+	public Set<Notification> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(Set<Notification> notifications) {
+		this.notifications = notifications;
+	}
 
 }

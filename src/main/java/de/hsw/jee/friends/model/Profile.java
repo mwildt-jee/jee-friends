@@ -2,8 +2,10 @@ package de.hsw.jee.friends.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Profile {
 
@@ -14,6 +16,8 @@ public class Profile {
 	private LocalDate birthDate;
 
 	private List<User> following = new ArrayList<User>();
+	
+	private Set<Message> messages = new HashSet<>();
 	
 	public Long getId() {
 		return id;
@@ -57,7 +61,14 @@ public class Profile {
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
-	
+
+	public Set<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(Set<Message> messages) {
+		this.messages = messages;
+	}
 	
 	public String getDisplayName() {
 		return getFirstName() + " " + getLastName();

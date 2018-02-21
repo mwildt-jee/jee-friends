@@ -11,6 +11,11 @@ import de.hsw.jee.friends.model.User;
 @ApplicationScoped
 public class RelationService {
 	
+	/**
+	 * Erzeugt eine neue Follow-Vernknüpfung zwischen einem Profil (dem gefolgt wird) und einem User (dem, der folgt)
+	 * @param profiletoFollow
+	 * @param follower
+	 */
 	public void follow(Profile profiletoFollow , User follower) {
 		follower.getFollowed().add(profiletoFollow);
 		profiletoFollow.getFollowing().add(follower);
@@ -22,7 +27,6 @@ public class RelationService {
 	 * @return
 	 */
 	public Set<Profile> getFollowedProfiles(User user) {
-		// liest alle Profile, denen der Nutzer folgt
 		return user.getFollowed();
 	}
 	
